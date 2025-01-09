@@ -1,0 +1,12 @@
+{
+    "user": "Usuario",
+    "password": "Contraseña",
+    "fullName": "Nombre completo",
+    "email": "Correo electrónico",
+    "telephone": "Teléfono",
+    "insuranceRequest": "Póliza",
+    "type": "Tipo de Seguro",
+    "insuredAmount": "Monto Asegurado",
+    "startDate": "Fecha de Inicio",
+    "expirationDate": "Fecha de Expiración"
+}

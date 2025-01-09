@@ -1,0 +1,56 @@
+<div class="mat-elevation-z8">
+    <div class="display-4 text-center fw-bold">
+        Pólizas
+    </div>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <mat-form-field appearance="outline" class="flex-grow-1 me-3">
+            <mat-label>Buscar</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Escribe para filtrar...">
+        </mat-form-field>
+    </div>
+    <div class="table-responsive">
+        <table mat-table [dataSource]="list" matSort class="table table-striped table-hover full-width-table">
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Folio</th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="type">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo de Seguro</th>
+                <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="insuredAmount">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Monto asegurado</th>
+                <td mat-cell *matCellDef="let element"> {{element.insuredAmount}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="startDate">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de inicio</th>
+                <td mat-cell *matCellDef="let element"> {{element.startDate}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="expirationDate">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de vencimiento</th>
+                <td mat-cell *matCellDef="let element"> {{element.expirationDate}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>
+                    <button mat-button (click)="createNew()" class="btn btn-primary btn-sm">Crear nueva</button>
+                    <button mat-button (click)="goToClientt()" class="btn btn-secondary btn-sm">Regresar al
+                        cliente</button>
+                    <button mat-button (click)="goToClientList()" class="btn btn-secondary btn-sm"
+                        *ngIf="userRole === 'ADMIN'">Lista de clientes</button>
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-button (click)="edit(element.id)" class="btn btn-primary btn-sm">Editar</button>
+                    <button mat-button (click)="askDelete(element.id)" class="btn btn-danger btn-sm">Eliminar</button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</div>
