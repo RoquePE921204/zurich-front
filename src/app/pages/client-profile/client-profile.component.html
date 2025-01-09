@@ -1,0 +1,43 @@
+<div class="container d-flex justify-content-center align-items-center custom-height">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h3 *ngIf="isNew" class="card-title text-center mb-4">Nuevo Cliente</h3>
+            <h3 *ngIf="!isNew" class="card-title text-center mb-4">Cliente: {{id}}</h3>
+            <div class="mb-3">
+                <label for="fullName" class="form-label">Nombre completo</label>
+                <input type="text" id="fullName" [(ngModel)]="fullName" name="fullName" class="form-control"
+                    placeholder="Ingrese su nombre completo" required />
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo electrónico</label>
+                <input type="email" id="email" [(ngModel)]="email" name="email" class="form-control"
+                    placeholder="Ingrese su correo electrónico" required />
+            </div>
+            <div class="mb-3">
+                <label for="telephone" class="form-label">Teléfono</label>
+                <input type="tel" id="telephone" [(ngModel)]="telephone" name="telephone" class="form-control"
+                    placeholder="Ingrese su teléfono" required />
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="flex-grow-1 mx-1">
+                    <button *ngIf="isNew" class="btn btn-primary w-100" (click)="createNew()">
+                        Crear
+                    </button>
+                    <button *ngIf="!isNew" class="btn btn-primary w-100" (click)="updateClient()">
+                        Actualizar
+                    </button>
+                </div>
+                <div *ngIf="userRole === 'ADMIN'" class="flex-grow-1 mx-1">
+                    <button class="btn btn-primary w-100" (click)="goToClientList()">
+                        Listado de clientes
+                    </button>
+                </div>
+                <div *ngIf="!isNew" class="flex-grow-1 mx-1">
+                    <button class="btn btn-primary w-100" (click)="goToinsuranceList()">
+                        Listado de pólizas
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
