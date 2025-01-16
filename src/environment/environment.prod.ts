@@ -1,5 +1,5 @@
 export const environment = {
-  production: false,
+  production: true,
   apiUrl: 'https://zurich-test-cbcbbaf396cb.herokuapp.com/api',
   loginApi: 'https://zurich-test-cbcbbaf396cb.herokuapp.com/user',
   clientApi: 'https://zurich-test-cbcbbaf396cb.herokuapp.com/client',
