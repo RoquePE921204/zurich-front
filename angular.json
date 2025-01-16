@@ -29,7 +29,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/insurance-front",
+            "outputPath": "dist/zurich-front",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
