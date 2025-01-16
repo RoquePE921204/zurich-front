@@ -7,6 +7,7 @@ import {
   InsuranceResponse,
 } from '../interfaces/insurance.interface';
 import { CommonResponse } from '../interfaces/common.interface';
+import { environment } from '../../environment/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +21,7 @@ export class InsuranceService {
   getInsuranceList(clientId: string): Observable<InsuranceResponse[]> {
     this.globalService.setLoading(true);
     return this.httpClient.get<any>(
-      `${this.globalService.insuranceApi}/list/${clientId}`,
+      `${environment.insuranceApi}/list/${clientId}`,
       {
         headers: this.globalService.genericHeaders,
         withCredentials: false,
@@ -31,7 +32,7 @@ export class InsuranceService {
   getInsurance(insuranceId: string): Observable<InsuranceResponse> {
     this.globalService.setLoading(true);
     return this.httpClient.get<any>(
-      `${this.globalService.insuranceApi}/${insuranceId}`,
+      `${environment.insuranceApi}/${insuranceId}`,
       {
         headers: this.globalService.genericHeaders,
         withCredentials: false,
@@ -41,32 +42,24 @@ export class InsuranceService {
 
   createInsurance(request: InsuranceRequest): Observable<CommonResponse> {
     this.globalService.setLoading(true);
-    return this.httpClient.post<any>(
-      `${this.globalService.insuranceApi}`,
-      request,
-      {
-        headers: this.globalService.genericHeaders,
-        withCredentials: false,
-      }
-    );
+    return this.httpClient.post<any>(`${environment.insuranceApi}`, request, {
+      headers: this.globalService.genericHeaders,
+      withCredentials: false,
+    });
   }
 
   updateInsurance(request: InsuranceRequest): Observable<CommonResponse> {
     this.globalService.setLoading(true);
-    return this.httpClient.put<any>(
-      `${this.globalService.insuranceApi}`,
-      request,
-      {
-        headers: this.globalService.genericHeaders,
-        withCredentials: false,
-      }
-    );
+    return this.httpClient.put<any>(`${environment.insuranceApi}`, request, {
+      headers: this.globalService.genericHeaders,
+      withCredentials: false,
+    });
   }
 
   deletetInsurance(insuranceId: string): Observable<CommonResponse> {
     this.globalService.setLoading(true);
     return this.httpClient.delete<any>(
-      `${this.globalService.insuranceApi}/${insuranceId}`,
+      `${environment.insuranceApi}/${insuranceId}`,
       {
         headers: this.globalService.genericHeaders,
         withCredentials: false,

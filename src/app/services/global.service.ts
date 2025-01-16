@@ -4,7 +4,6 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ClientResponse } from '../interfaces/client.interface';
 import {
   CommonResponse,
   GlobalExceptionResponse,
@@ -17,9 +16,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class GlobalService {
-  public loginApi: string = 'http://127.0.0.1:8080/user';
-  public clientApi: string = 'http://127.0.0.1:8080/client';
-  public insuranceApi: string = 'http://127.0.0.1:8080/insurance';
   public fields: { [key: string]: string } = {};
 
   public generalSuccessMessage: string =
