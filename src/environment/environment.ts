@@ -1,7 +1,7 @@
 export const environment = {
   production: false,
-  apiUrl: 'https://zurich-test-cbcbbaf396cb.herokuapp.com/api',
-  loginApi: 'https://zurich-test-cbcbbaf396cb.herokuapp.com/user',
-  clientApi: 'https://zurich-test-cbcbbaf396cb.herokuapp.com/client',
-  insuranceApi: 'https://zurich-test-cbcbbaf396cb.herokuapp.com/insurance',
+  apiUrl: 'http://127.0.0.1:8080/api',
+  loginApi: 'http://127.0.0.1:8080/user',
+  clientApi: 'http://127.0.0.1:8080/client',
+  insuranceApi: 'http://127.0.0.1:8080/insurance',
 };
